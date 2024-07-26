@@ -3,7 +3,7 @@ Emacs / Debian init.el for C-programming beginner's like me :)
 
 # For debian 12.6
 
-sudo apt install build-essential
+sudo apt install build-essential (c/c++ compiler)
 
 
 sudo apt install emacs (GNU Emacs is the extensible self-documenting text editor.)
