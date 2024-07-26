@@ -60,8 +60,6 @@
   (interactive)
   (switch-to-buffer (generate-new-buffer-name "*new*")))
 
-(global-set-key (kbd "M-o") 'je-create-new-buffer)
-
 (defun misc-notes ()
   "Open my slask.org."
   (interactive)

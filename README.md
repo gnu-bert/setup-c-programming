@@ -2,6 +2,10 @@
 Emacs / Debian init.el for C-programming beginner's like me :)
 
 # For debian 12.6
+
+sudo apt install build-essential
+
+
 sudo apt install emacs (GNU Emacs is the extensible self-documenting text editor.)
 
 
@@ -18,10 +22,15 @@ copy init.el to your .emacs.d directory in your home folder.
 M is the Altkey
 
 
+C is the Ctrlkey
+
 M-m (compile using your Makefile)
 
 
 F5  (compile your current *.c file)
+
+
+C-c o (open the header file at point/cursor)
 
 
 evil-mode is not enable by default, but you can start it just hit M-x and type evil-mode
