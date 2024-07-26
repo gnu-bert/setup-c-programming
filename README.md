@@ -1,5 +1,5 @@
 # emacs-init.el
-Emacs / Debian init.el for C-programming beginner's like me :)
+Emacs / Debian init.el for C-programming for beginner's like me + install compiler:)
 
 # For debian 12.6
 
