@@ -1,0 +1,194 @@
+#+title: literate programming / Babel c programming
+#+author: name
+#+date
+#+latex_class_options: [a4paper]
+#+latex_header: \usepackage[margin=3cm]{geometry}
+
+* literate programming / Babel keybinding's
+My Math may not be correct !!
+
+C-c C-c (execute codeblock, cursor/point must be within begin and end block) 
+C-c C-vt (export codeblock, require :tangle) 
+
+* hello world!
+#+begin_src C :results output :tangle hello2.c
+
+  #include <stdio.h>
+  int
+  main()
+  {
+      printf("hello world!\n");
+      return 0;
+  }
+#+end_src
+
+#+RESULTS:
+: hello world!
+
+* random number
+#+begin_src C :results output :tangle randomnum.c
+
+  #include <stdio.h>
+  #include <stdlib.h>
+  #include <time.h>
+
+  int
+  main()
+  {
+      int n_times = 5;
+      int min = 0;
+      int max = 1;
+      srand((unsigned)(time(NULL)));
+      for (int i = 0; i < n_times; ++i) {
+	  int r_num1 = min + rand() % (max - min + 1 );
+	  printf("%d\n", r_num1);
+      }
+  }
+#+end_src
+
+#+RESULTS:
+: 0
+: 0
+: 1
+: 1
+: 0
+
+* long double test
+#+begin_src C :results output :tangle longdoubletest.c
+  #include <stdio.h>
+  #include <stdlib.h>
+
+  int
+  main()
+  {
+      long double num1 = 1.0L;
+      long double num2 = 7.0L;
+      long double sum;
+      sum = num1 / num2;
+      printf("%.21LF\n", sum);
+  }
+
+#+end_src
+
+#+RESULTS:
+: 0.14285714285714285
+
+* pendulum
+#+begin_src C :results output :libs -lm
+  /* To calculate the length of a simple pendulum, use the formula L = (T/ 2π)²×g . */
+  #include <stdio.h>
+  #include <math.h>
+
+  int
+  main()
+  {
+      long double pi = acos(-1L);
+      long double L = 0.0;
+      long double T = 1.0;
+      long double g = 9.8;
+      L = sqrt((T / (2 * pi))) * g;
+      printf("%.18Lf \n", L);
+  }
+
+#+end_src
+
+#+RESULTS:
+: 3.9096343479340407
+
+#+begin_src C :libs -lm
+
+  /*
+    Calculate time for a object to fall X meter 
+    How do I find the time taken for an object to fall
+  ,*/
+  #include <stdio.h>
+  #include <math.h>
+  int
+  main()
+  {
+      float X = 4.9; /* Dropp height in meter */
+      float T; /* Fall time in seconds */
+      float g = 9.8;
+
+      T = sqrt(((2.0 * X) / g));
+      printf("Falltime %f\n", T);
+  }
+
+#+end_src
+
+#+RESULTS:
+: Falltime 1.000000
+
+* Acceleration
+#+begin_src C :results output
+  #include <stdio.h>
+  #include <stdlib.h>
+  /* Free Fall and the Acceleration of Gravity calculation V = g*t */
+  int
+  main()
+  {
+      float d = 0;
+      float g = 9.8;
+      float t = 5;
+      float V = g * (t * t);
+      printf("time t = %f\n", t);
+      printf("Gravity g = %f\n", g);
+      printf("speed m/s = %f\n", V);
+      printf("speed km/h = %f\n", V / 3.6); /* speed V = g * t */
+      printf("length meter = %f\n", 0.5 * g * (t * t)); /* how long will a object travel falling time t */
+  }
+
+#+end_src
+
+#+RESULTS:
+: time t = 5.000000
+: Gravity g = 9.800000
+: speed m/s = 245.000000
+: speed km/h = 68.055556
+: length meter = 122.500002
+
+#+begin_src C :results output :libs -lm
+
+  /* spit the real part and float part */
+  #include <stdio.h> 
+  #include <stdlib.h>
+  #include <math.h>
+  #include <stddef.h>
+  #include <stdint.h>
+
+  int main(void) 
+  {
+      long double h = 1.5L;
+      long double fracPart = 0;
+      int intPart = 0;
+
+      fracPart  = h - floorl(h);
+      intPart = fabsl(h);
+      printf("%d\n", intPart);
+      printf("%Lf\n", fracPart);
+      printf("%.17Lf\n", intPart + fracPart);
+  }
+#+end_src
+
+#+RESULTS:
+: 1
+: 0.500000
+: 1.50000000000000000
+
+#+begin_src C :libs -lm
+
+  #include <stdio.h>
+  #include <stdlib.h>
+  #include <math.h>
+
+  int
+  main(void)
+  {
+      double pi = acos(-1L);
+      printf("%.21f", pi);
+      return 0;
+  }
+#+end_src
+
+#+RESULTS:
+: 3.141592653589793
