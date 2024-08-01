@@ -45,8 +45,8 @@
   (interactive)
   (defvar run-c-tmp007)
   (save-buffer)
-  (setq tmp007 (concat "cc -ggdb -Wall -Wextra -pedantic " (buffer-name) " -lm && ./a.out" ))
-  (shell-command run-c-program-tmp007))
+  (setq run-c-tmp007 (concat "cc -ggdb -Wall -Wextra -pedantic " (buffer-name) " -lm && ./a.out" ))
+  (shell-command run-c-tmp007))
 
 (defvar org-babel-C-compiler)
 (defvar org-babel-load-languages)
@@ -70,9 +70,6 @@
 (global-set-key [f7] 'compile)
 (global-set-key [f12] 'misc-notes)
 
-;;(add-hook 'c-mode-common-hook
-;;          (lambda()
-;;            (local-set-key  (kbd "C-c o") 'ff-find-other-file)))
 (global-set-key  (kbd "C-c o") 'ff-find-other-file)
 
 (provide 'init)
