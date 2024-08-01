@@ -46,7 +46,7 @@
   (defvar run-c-tmp007)
   (save-buffer)
   (setq tmp007 (concat "cc -ggdb -Wall -Wextra -pedantic " (buffer-name) " -lm && ./a.out" ))
-  (shell-command run-c-tmp007))
+  (shell-command run-c-program-tmp007))
 
 (defvar org-babel-C-compiler)
 (defvar org-babel-load-languages)
